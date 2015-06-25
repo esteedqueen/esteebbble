@@ -8,3 +8,8 @@ body, html {
 ul{
 	list-style: none;
 }
+
+.navbar-brand {
+	font-size: 40px;
+	font-weight: 300;
+}

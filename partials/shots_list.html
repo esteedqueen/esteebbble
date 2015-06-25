@@ -1,0 +1,36 @@
+<div>
+		<div class="container">
+			<ul class="thumbnails">
+				<li class="col-md-4 shot" ng-repeat="shot in list.shots">
+					<div class="thumbnail">
+					<a href="#/shots/{{shot.id}}">
+
+					<img ng-src="{{ shot.image_url }}">
+					</a>
+					<strong class="title">{{ shot.title }}</strong>
+
+					<a class="player" href="#/players/{{shot.player.username}}">
+						{{shot.player.name}}
+					</a>
+
+					<div class="stats">
+						<span class="stat">
+							<i class="fa fa-eye"></i>
+							{{ shot.views_count}}
+						</span>
+						<span class="stat">
+							<i class="fa fa-comment"></i>
+							{{ shot.comments_count}}
+						</span>
+						<span class="stat">
+							<i class="fa fa-heart"></i>
+							{{ shot.likes_count}}
+						</span>
+						
+					</div>
+					
+					</div>
+				</li>
+			</ul>
+		</div>
+		</div>

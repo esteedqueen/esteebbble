@@ -16,7 +16,4 @@ controllers.controller('ShotsListCtrl', function ($scope, $http) {
 		$scope.list = data.data;
 		console.log(data);
 	});
-
-
-
-})
+});
