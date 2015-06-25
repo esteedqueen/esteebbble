@@ -1,0 +1,10 @@
+*{
+	box-sizing:border-box;
+}  
+body, html {
+	background-color: #F2F2F2
+}
+
+ul{
+	list-style: none;
+}

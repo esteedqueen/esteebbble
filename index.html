@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="esteebble">
+<head>
+	<meta charset="utf-8">
+	<title>Esteebble</title>
+	<link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/app.css">
+</head>
+<body ng-controller="AppCtrl">
+	<div class="container">
+		<div class="navbar">
+			<div class="navbar-inner">
+				<a class="brand" href="#/">Esteeble</a>
+				<ul class="nav">
+				</ul>
+			</div>
+		</div>
+		<h1>Hello {{ name }}</h1>
+		<input type="text" ng-model="name">
+		<button ng-click="updateName()" class="btn">Update</button>
+
+		<div ng-controller="ShotsListCtrl">
+		<div class="container">
+			<ul class="thumbnails">
+				<li class="col-md-4 shot" ng-repeat="shot in list.shots">
+					<div class="thumbnail">
+					<a href="#/shots/{{shot.id}}">
+
+					<img ng-src="{{ shot.image_url }}">
+					</a>
+					<strong class="title">{{ shot.title }}</strong>
+
+					<a class="player" href="#/players/{{shot.player.username}}">
+						{{shot.player.name}}
+					</a>
+
+					<div class="stats">
+						<span class="stat">
+							<i class="glyphicon glyphicon-eye-open"></i>
+							{{ shot.views_count}}
+						</span>
+						<span class="stat">
+							<i class="glyphicon glyphicon-comment"></i>
+							{{ shot.comments_count}}
+						</span>
+						<span class="stat">
+							<i class="glyphicon glyphicon-heart"></i>
+							{{ shot.likes_count}}
+						</span>
+						
+					</div>
+					
+					</div>
+				</li>
+			</ul>
+		</div>
+		</div>
+	</div>
+
+	<script src="lib/angular/angular.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/services.js"></script>
+	<script src="js/controllers.js"></script>
+	<script src="js/filters.js"></script>
+	<script src="js/directives.js"></script>
+</body>
+</html>
