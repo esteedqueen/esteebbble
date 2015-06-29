@@ -9,21 +9,31 @@ controllers.controller('AppCtrl', function ($scope) {
 	}
 });
 
-controllers.controller('ShotsListCtrl', function ($scope, $routeParams, $http) {
+controllers.controller('ShotsListCtrl', function ($scope, esteebble, $routeParams) {
 	console.log($routeParams);
 
 	 var list = $routeParams.list;
 
-	$http.jsonp("http://api.dribbble.com/shots/"+list+"?callback=JSON_CALLBACK").then(function (data) {
-		$scope.list = data.data;
+	 esteebble.list(list).then(function (data) {
+	 	$scope.list = data.data;
 		console.log(data);
-	});
+	 });
+
+	// $http.jsonp("http://api.dribbble.com/shots/"+list+"?callback=JSON_CALLBACK").then(function (data) {
+	// 	$scope.list = data.data;
+	// 	console.log(data);
+	// });
 });
 
-controllers.controller('OneShotCtrl', function ($scope, $routeParams, $http) {
+controllers.controller('OneShotCtrl', function ($scope, $routeParams, esteebble) {
 	var id = $routeParams.id;
-	$http.jsonp("http://api.dribbble.com/shots/"+id+"?callback=JSON_CALLBACK").then(function (data) {
-	$scope.shot = data.data;
-	console.log(data);
+
+	esteebble.shot(id).then(function (data){
+		$scope.shot = data.data;
+		console.log(data);
 	});
+	// $http.jsonp("http://api.dribbble.com/shots/"+id+"?callback=JSON_CALLBACK").then(function (data) {
+	// $scope.shot = data.data;
+	// console.log(data);
+	// });
 });

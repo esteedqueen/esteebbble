@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('esteebble', ['ngRoute', 'esteebble.controllers']);
+var app = angular.module('esteebble', ['ngRoute', 'esteebble.controllers', 'esteebble.filters', 'esteebble.services']);
 
 app.config(function ($routeProvider) {
 	$routeProvider
