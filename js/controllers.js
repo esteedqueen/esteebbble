@@ -10,7 +10,7 @@ controllers.controller('AppCtrl', function ($scope) {
 });
 
 controllers.controller('ShotsListCtrl', function ($scope, esteebble, $routeParams) {
-	console.log($routeParams);
+	 console.log($routeParams);
 
 	 var list = $routeParams.list;
 
@@ -18,6 +18,15 @@ controllers.controller('ShotsListCtrl', function ($scope, esteebble, $routeParam
 	 	$scope.list = data.data;
 		console.log(data);
 	 });
+
+	 $scope.loadNextPage = function () {
+	 	esteebble.list(list, {page: $scope.list.page+1}).then(function (data) {
+	 		console.log(data);
+	 		$scope.list.page = data.data.page;
+	 		$scope.list.shots = $scope.list.shots.concat(data.data.shots);
+	 	});
+	 
+	 }
 
 	// $http.jsonp("http://api.dribbble.com/shots/"+list+"?callback=JSON_CALLBACK").then(function (data) {
 	// 	$scope.list = data.data;
